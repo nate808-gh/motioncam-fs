@@ -1,3 +1,10 @@
 [submodule "deps/motioncam-decoder"]
 	path = deps/motioncam-decoder
 	url = https://github.com/nate808-gh/motioncam-decoder
+[submodule "deps/thread-pool"]
+	path = deps/thread-pool
+	url = https://github.com/bshoshany/thread-pool.git
+[submodule "deps/motioncam-player"]
+	path = deps/motioncam-player
+	url = https://github.com/nate808-gh/motioncam-player.git
+	branch = linux-support
