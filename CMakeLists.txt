@@ -167,12 +167,8 @@ set_target_properties(motioncam-fs PROPERTIES
         WIN32_EXECUTABLE TRUE
 )
 
-include(GNUInstallDirs)
-install(TARGETS motioncam-fs
-        BUNDLE DESTINATION .
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
+# install() removed; AppImage packaging will handle layout
+
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(motioncam-fs)

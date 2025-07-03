@@ -158,7 +158,6 @@ void MainWindow::mountFile(const QString& filePath) {
     auto fileName = fileInfo.fileName();
     auto dstPath = (mCacheRootFolder.isEmpty() ? fileInfo.path() : mCacheRootFolder) + "/" + fileInfo.baseName();
 
-    // create the mount point if it doesn't exist
     QDir().mkpath(dstPath);
 
     motioncam::MountId mountId;
@@ -223,11 +222,19 @@ void MainWindow::playFile(const QString& path) {
 #elif __APPLE__
     success = QProcess::startDetached("/usr/bin/open", arguments);
 #else
-    success = QProcess::startDetached("./MCRAW_Player", arguments);
+    QProcess player;
+
+    // Dynamically determine the directory where motioncam-fs is running from
+    QString appDir = QCoreApplication::applicationDirPath();
+    player.setWorkingDirectory(appDir);
+
+    // Use absolute path to MCRAW_Player
+    success = player.startDetached(appDir + "/MCRAW_Player", arguments);
 #endif
 
-    if (!success)
+    if (!success) {
         QMessageBox::warning(this, "Error", QString("Failed to launch player with file: %1").arg(path));
+    }
 }
 
 void MainWindow::removeFile(QWidget* fileWidget) {
