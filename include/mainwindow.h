@@ -63,7 +63,7 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private slots:
-    void onRenderSettingsChanged(const Qt::CheckState &state);
+    void onRenderSettingsChanged(int state);
     void onDraftModeQualityChanged(int index);
     void onSetCacheFolder(bool checked);
 

@@ -61,9 +61,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     restoreSettings();
 
-    connect(ui->draftModeCheckBox, &QCheckBox::checkStateChanged, this, &MainWindow::onRenderSettingsChanged);
-    connect(ui->vignetteCorrectionCheckBox, &QCheckBox::checkStateChanged, this, &MainWindow::onRenderSettingsChanged);
-    connect(ui->scaleRawCheckBox, &QCheckBox::checkStateChanged, this, &MainWindow::onRenderSettingsChanged);
+    // fixed here
+    connect(ui->draftModeCheckBox, &QCheckBox::stateChanged, this, &MainWindow::onRenderSettingsChanged);
+    connect(ui->vignetteCorrectionCheckBox, &QCheckBox::stateChanged, this, &MainWindow::onRenderSettingsChanged);
+    connect(ui->scaleRawCheckBox, &QCheckBox::stateChanged, this, &MainWindow::onRenderSettingsChanged);
     connect(ui->draftQuality, &QComboBox::currentIndexChanged, this, &MainWindow::onDraftModeQualityChanged);
     connect(ui->changeCacheBtn, &QPushButton::clicked, this, &MainWindow::onSetCacheFolder);
 }
@@ -224,11 +225,9 @@ void MainWindow::playFile(const QString& path) {
 #else
     QProcess player;
 
-    // Dynamically determine the directory where motioncam-fs is running from
     QString appDir = QCoreApplication::applicationDirPath();
     player.setWorkingDirectory(appDir);
 
-    // Use absolute path to MCRAW_Player
     success = player.startDetached(appDir + "/MCRAW_Player", arguments);
 #endif
 
@@ -277,7 +276,7 @@ void MainWindow::updateUi() {
     ui->cacheFolderLabel->setText(mCacheRootFolder);
 }
 
-void MainWindow::onRenderSettingsChanged(const Qt::CheckState&) {
+void MainWindow::onRenderSettingsChanged(int) {
     auto renderOptions = getRenderOptions(*ui);
     updateUi();
 
@@ -307,3 +306,4 @@ void MainWindow::onSetCacheFolder(bool checked) {
     mCacheRootFolder = folderPath;
     ui->cacheFolderLabel->setText(mCacheRootFolder);
 }
+

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmotioncam-decoder.a CMakeFiles/motioncam-decoder.dir/motioncam-decoder_autogen/mocs_compilation.cpp.o CMakeFiles/motioncam-decoder.dir/deps/motioncam-decoder/lib/Decoder.cpp.o CMakeFiles/motioncam-decoder.dir/deps/motioncam-decoder/lib/RawData.cpp.o CMakeFiles/motioncam-decoder.dir/deps/motioncam-decoder/lib/RawData_Legacy.cpp.o
+/usr/bin/ranlib libmotioncam-decoder.a

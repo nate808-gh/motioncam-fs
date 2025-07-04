@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+985fdb7c66049e8cfd656fd3a526f580 CMakeFiles/motioncam-decoder_autogen
+0c4d962c9b397a9b59e0b16ed92e1916 CMakeFiles/motioncam-fs_autogen
+225dca9ff58307f9bc2a02103d7f9c92 qrc_resources.cpp

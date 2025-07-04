@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-cmake_policy(SET CMP0167 OLD)
+#cmake_policy(SET CMP0167 OLD)
 
 if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Minimum OS X deployment version")
@@ -139,7 +139,7 @@ set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 set(Boost_NO_BOOST_CMAKE ON)
 
-find_package(Boost 1.86.0 REQUIRED COMPONENTS filesystem locale)
+find_package(Boost 1.74 REQUIRED COMPONENTS filesystem locale)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 endif()
