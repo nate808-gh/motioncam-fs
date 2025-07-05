@@ -1,6 +1,0 @@
-/workspace/motioncam-fs/dockerbuild/CMakeFiles/motioncam-fs.dir
-/workspace/motioncam-fs/dockerbuild/CMakeFiles/motioncam-decoder.dir
-/workspace/motioncam-fs/dockerbuild/CMakeFiles/edit_cache.dir
-/workspace/motioncam-fs/dockerbuild/CMakeFiles/rebuild_cache.dir
-/workspace/motioncam-fs/dockerbuild/CMakeFiles/motioncam-fs_autogen.dir
-/workspace/motioncam-fs/dockerbuild/CMakeFiles/motioncam-decoder_autogen.dir
